@@ -1,0 +1,16 @@
+spring:
+  freemarker:
+    charset: UTF-8
+    allow-request-override: false
+    cache: true
+    check-template-location: true
+    content-type: text/html
+    expose-request-attributes: false
+    expose-session-attributes: false
+    expose-spring-macro-helpers: false
+    suffix: .ftl
+    template-loader-path: classpath:/templates/
+    #prefix=
+    #request-context-attribute=
+    #settings.*=
+    #view-names= #whitelistofviewnamesthatcanberesolved

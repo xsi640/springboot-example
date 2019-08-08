@@ -1,0 +1,6 @@
+springBoot {
+    mainClassName "com.suyang.Application"
+}
+
+dependencies {
+}

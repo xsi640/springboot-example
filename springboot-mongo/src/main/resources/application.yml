@@ -1,0 +1,5 @@
+spring:
+  data:
+    mongodb:
+      port: 27017
+      uri: mongodb://suyang:123123@192.168.61.100:27017/test
