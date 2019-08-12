@@ -37,6 +37,7 @@ defineSubProject("updatefile")
 defineSubProject("webflux")
 defineSubProject("websocket")
 defineSubProject("websocket2")
+defineSubProject("graphql")
 
 defineSubProject("demo-starter", "starter-demo")
 defineSubProject("starter-demo-test", "starter-demo")
