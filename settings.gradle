@@ -37,3 +37,11 @@ defineSubProject("updatefile")
 defineSubProject("webflux")
 defineSubProject("websocket")
 defineSubProject("websocket2")
+
+defineSubProject("demo-starter", "starter-demo")
+defineSubProject("starter-demo-test", "starter-demo")
+
+
+defineSubProject("grpc-server", "grpc")
+defineSubProject("grpc-facade", "grpc")
+defineSubProject("grpc-client", "grpc")

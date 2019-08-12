@@ -65,7 +65,7 @@ public class StudentControllerTest {
     }
 
     @Test
-    void findOneTest() throws Exception {
+    public void findOneTest() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/student/" + student.getId())).andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.id", Matchers.is(student.getId())))
@@ -74,14 +74,14 @@ public class StudentControllerTest {
     }
 
     @Test
-    void findAllTest() throws Exception {
+    public void findAllTest() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/student")).andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$", Matchers.hasSize(1)));
     }
 
     @Test
-    void createTest() throws Exception {
+    public void createTest() throws Exception {
         Student s = new Student();
         s.setName("李四");
         s.setAge(20);
@@ -94,7 +94,7 @@ public class StudentControllerTest {
     }
 
     @Test
-    void modifyTest() throws Exception {
+    public void modifyTest() throws Exception {
         Student s = new Student();
         s.setId(student.getId());
         s.setName("王五");
@@ -109,7 +109,7 @@ public class StudentControllerTest {
     }
 
     @Test
-    void deleteTest() throws Exception {
+    public void deleteTest() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.delete("/student/" + student.getId())).andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk());
 

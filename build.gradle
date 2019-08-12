@@ -4,7 +4,8 @@ plugins {
     id "io.freefair.lombok" version "3.8.4"
 }
 
-allprojects {
+subprojects {
+    apply plugin: "idea"
     apply plugin: "java"
     apply plugin: "org.springframework.boot"
     apply plugin: "io.spring.dependency-management"
@@ -24,9 +25,7 @@ allprojects {
         maven { url "https://plugins.gradle.org/m2/" }
         maven { url 'https://repo.spring.io/libs-milestone' }
     }
-}
 
-subprojects {
     dependencies {
         implementation "org.springframework.boot:spring-boot-starter"
         implementation "org.springframework.boot:spring-boot-configuration-processor"

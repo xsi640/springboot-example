@@ -1,4 +1,5 @@
 package com.suyang.test;
 
-public class TestNameConfigurer {
+public interface TestNameConfigurer {
+    void addName(TestRegistry registry);
 }
