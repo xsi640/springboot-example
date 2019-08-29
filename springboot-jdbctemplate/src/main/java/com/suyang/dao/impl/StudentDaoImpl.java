@@ -2,6 +2,7 @@ package com.suyang.dao.impl;
 
 import com.suyang.dao.StudentDao;
 import com.suyang.domain.Student;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -21,6 +22,7 @@ public class StudentDaoImpl implements StudentDao {
     private static final String SELECT_ALL = "SELECT * FROM student";
     private static final String DELETE_ALL = "DELETE FROM student";
 
+    @Autowired
     private JdbcTemplate jdbcTemplate;
 
     @Override
@@ -30,7 +32,7 @@ public class StudentDaoImpl implements StudentDao {
             s.setId(rs.getInt("id"));
             s.setName(rs.getString("name"));
             s.setAge(rs.getInt("age"));
-            s.setBirthday(rs.getDate("birthday"));
+            s.setBirthday(rs.getTimestamp("birthday"));
             return s;
         });
     }
@@ -71,7 +73,7 @@ public class StudentDaoImpl implements StudentDao {
             s.setId(rs.getInt("id"));
             s.setName(rs.getString("name"));
             s.setAge(rs.getInt("age"));
-            s.setBirthday(rs.getDate("birthday"));
+            s.setBirthday(rs.getTimestamp("birthday"));
             return s;
         });
     }
