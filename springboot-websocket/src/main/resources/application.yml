@@ -1,0 +1,4 @@
+server:
+  servlet:
+    context-path: "/sse"
+  port: 80
