@@ -1,21 +1,27 @@
 package com.suyang.mq;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.amqp.rabbit.annotation.RabbitHandler;
-import org.springframework.amqp.rabbit.annotation.RabbitListener;
-import org.springframework.stereotype.Component;
+import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.stereotype.Service;
 
-/**
- * 通过@RabbitListener注解定义该类对hello队列的监听，
- * 并用@RabbitHandler注解来指定对消息的处理方法。
- * 所以，该消费者实现了对hello队列的消费，消费操作为输出消息的字符串内容。
- */
+import java.io.IOException;
+
 @Slf4j
-@Component
-@RabbitListener(queues = "hello")
+@Service
 public class Consumer {
-    @RabbitHandler
-    public void process(String s) {
-        log.info("Consumer:" + s);
+
+    static volatile long i = 0;
+
+    @KafkaListener(topics = "test1", groupId = "group_id")
+    public void consume(String message) throws IOException {
+//        i++;
+//        if (i == 5) {
+//            try {
+//                Thread.sleep(1000000000);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//        }
+        log.info("consume " + i + " message:" + message);
     }
 }

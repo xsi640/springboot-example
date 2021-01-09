@@ -1,12 +1,16 @@
 spring:
+  application:
+    name: bd-job-executor-springboot
   kafka:
+    bootstrap-servers: localhost:9092
     consumer:
-      bootstrap: localhost:9092
-      group-id: group_id
-      auto-offset-reset: earliest
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      producer:
-        bootstrap: 192.168.61.100:9092
-        key-serializer: org.apache.kafka.common.serialization.StringSerializer
-        value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      groupId: executor
+      enable-auto-commit: true
+      keyDeserializer: org.apache.kafka.common.serialization.StringDeserializer
+      valueDserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      groupId: executor
+      keyDeserializer: org.apache.kafka.common.serialization.StringSerializer
+      valueDserializer: org.apache.kafka.common.serialization.StringSerializer
+      batch-size: 16384
+      buffer-memory: 33554432

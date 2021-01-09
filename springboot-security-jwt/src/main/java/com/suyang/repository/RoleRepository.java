@@ -1,6 +1,6 @@
-package github.javaguide.springsecurityjwtguide.system.repository;
+package com.suyang.repository;
 
-import github.javaguide.springsecurityjwtguide.system.entity.Role;
+import com.suyang.entity.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

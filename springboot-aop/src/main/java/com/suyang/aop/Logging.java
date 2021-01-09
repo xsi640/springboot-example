@@ -1,4 +1,4 @@
-package com.haohan.zero.core.aop;
+package com.suyang.aop;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
