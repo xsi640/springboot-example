@@ -1,20 +1,22 @@
 plugins {
-    id "org.springframework.boot" version "2.1.5.RELEASE"
-    id "io.spring.dependency-management" version "0.6.0.RELEASE"
-    id "io.freefair.lombok" version "3.8.4"
+    id 'org.springframework.boot' version '2.4.1'
+    id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+    id 'java'
 }
 
-subprojects {
+allprojects {
     apply plugin: "idea"
     apply plugin: "java"
     apply plugin: "org.springframework.boot"
     apply plugin: "io.spring.dependency-management"
-    apply plugin: "io.freefair.lombok"
 
     group "com.suyang"
     version "1.0.0-SNAPSHOT"
     java.sourceCompatibility = JavaVersion.VERSION_1_8
     java.targetCompatibility = JavaVersion.VERSION_1_8
+
+    jar.enabled = true
+    bootJar.enabled = false
 
     repositories {
         mavenLocal()
@@ -28,11 +30,18 @@ subprojects {
 
     dependencies {
         implementation "org.springframework.boot:spring-boot-starter"
+        implementation "org.springframework.boot:spring-boot-starter-validation"
         implementation "org.springframework.boot:spring-boot-configuration-processor"
 
         implementation "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml"
         implementation "com.fasterxml.jackson.module:jackson-module-kotlin"
 
+        compileOnly 'org.projectlombok:lombok'
+        annotationProcessor 'org.projectlombok:lombok'
+
         testImplementation "org.springframework.boot:spring-boot-starter-test"
+        test {
+            implementation "junit:junit:4.13.1"
+        }
     }
 }
