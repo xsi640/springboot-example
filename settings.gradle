@@ -27,6 +27,7 @@ defineSubProject("mongotemplate")
 defineSubProject("neo4j")
 defineSubProject("properties")
 defineSubProject("rabbitmq")
+defineSubProject("kafka")
 defineSubProject("redis")
 defineSubProject("schedule")
 defineSubProject("slf4j-log4j2")
@@ -47,3 +48,5 @@ defineSubProject("grpc-facade", "grpc")
 defineSubProject("grpc-client", "grpc")
 
 defineSubProject("security-jwt")
+
+defineSubProject("invocation-interface")
