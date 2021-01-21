@@ -42,7 +42,8 @@ defineSubProject("graphql")
 defineSubProject("demo-starter", "starter-demo")
 defineSubProject("starter-demo-test", "starter-demo")
 
-
 defineSubProject("grpc-server", "grpc")
 defineSubProject("grpc-facade", "grpc")
 defineSubProject("grpc-client", "grpc")
+
+defineSubProject("security-jwt")

@@ -23,9 +23,9 @@ public class UserRegisterRequest {
     private String password;
 
     public User toUser() {
-        return User.builder()
-                .userName(userName)
-                .enabled(true)
-                .build();
+        User result = new User();
+        result.setUserName(userName);
+        result.setEnabled(true);
+        return result;
     }
 }

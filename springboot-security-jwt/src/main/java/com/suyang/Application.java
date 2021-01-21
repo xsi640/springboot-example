@@ -34,8 +34,11 @@ public class Application implements CommandLineRunner {
         }
         //初始化一个 admin 用户
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-        User user = User.builder().enabled(true).fullName("admin").userName("root")
-                .password(bCryptPasswordEncoder.encode("root")).build();
+        User user = new User();
+        user.setUserName("root");
+        user.setFullName("admin");
+        user.setEnabled(true);
+        user.setPassword(bCryptPasswordEncoder.encode("root"));
         userRepository.save(user);
         Role role = roleRepository.findByName(RoleType.ADMIN.getName()).get();
         userRoleRepository.save(new UserRole(user, role));
