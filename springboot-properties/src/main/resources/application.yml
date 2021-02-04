@@ -1,3 +1,7 @@
 test:
   name: zhangsan
   gender: male
+  maps:
+    a.a: 1
+    b.b: 2
+  name2: ${test.name}-${test.gender}

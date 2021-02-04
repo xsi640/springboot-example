@@ -18,7 +18,7 @@ public class HelloController {
 
     @GetMapping("/test")
     public String test() {
-        return "name:" + settingsAppYaml.getName() + " gender:" + settingsAppYaml.getGender();
+        return "name:" + settingsAppYaml.getName() + " gender:" + settingsAppYaml.getGender() + " " + settingsAppYaml.getName2();
     }
 
     @GetMapping("/test2")
@@ -29,5 +29,14 @@ public class HelloController {
     @GetMapping("/test3")
     public String test3() {
         return "name:" + settingsYaml.getName() + " gender:" + settingsYaml.getAge();
+    }
+
+    @GetMapping("/test4")
+    public String test4() {
+        StringBuilder builder = new StringBuilder();
+        for (String s : settingsAppYaml.getMaps().keySet()) {
+            builder.append(s).append(":").append(settingsAppYaml.getMaps().get(s)).append("/n");
+        }
+        return builder.toString();
     }
 }
