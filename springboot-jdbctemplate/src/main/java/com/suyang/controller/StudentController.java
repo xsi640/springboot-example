@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RequestMapping("/student")
 @RestController
@@ -31,5 +32,10 @@ public class StudentController {
     @RequestMapping(value = "{id}", method = RequestMethod.DELETE)
     public void delete(@PathVariable("id") int id) {
         studentDao.delete(id);
+    }
+
+    @RequestMapping(path = "stream", method = RequestMethod.GET)
+    public List<Student> findStream() {
+        return studentDao.selectStream().collect(Collectors.toList());
     }
 }

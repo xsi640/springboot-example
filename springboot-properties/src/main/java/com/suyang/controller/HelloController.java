@@ -35,7 +35,7 @@ public class HelloController {
     public String test4() {
         StringBuilder builder = new StringBuilder();
         for (String s : settingsAppYaml.getMaps().keySet()) {
-            builder.append(s).append(":").append(settingsAppYaml.getMaps().get(s)).append("/n");
+            builder.append(s).append(":").append(settingsAppYaml.getMaps().get(s)).append("<br />");
         }
         return builder.toString();
     }

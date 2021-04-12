@@ -4,10 +4,10 @@ logging:
     com.example: DEBUG
 spring:
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.1.254:3306/test?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
-    username: root
-    password: 830128suyang
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://10.10.3.28:5432/test
+    username: postgres
+    password: postgres
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
       minimum-idle: 5 # 最小空闲连接数
@@ -18,7 +18,7 @@ spring:
       connection-timeout: 30000 # 数据库连接超时时间
       connection-test-query: SELECT 1 # 测试数据库连接
   jpa:
-    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
     show-sql: true
     hibernate:
       ddl-auto: update

@@ -4,6 +4,7 @@ import com.suyang.dao.StudentDao;
 import com.suyang.domain.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
@@ -11,6 +12,9 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.util.List;
+import java.util.Spliterators;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 
 @SuppressWarnings("Duplicates")
 @Repository
@@ -81,5 +85,23 @@ public class StudentDaoImpl implements StudentDao {
     @Override
     public int clear() {
         return jdbcTemplate.update(DELETE_ALL);
+    }
+
+    @Override
+    public Stream<Student> selectStream() {
+        PreparedStatementCreator creator = conn -> {
+            PreparedStatement pstmt = conn.prepareStatement(SELECT_ALL, ResultSet.TYPE_FORWARD_ONLY,
+                    ResultSet.CONCUR_READ_ONLY);
+            pstmt.setFetchSize(Integer.MIN_VALUE);
+            return pstmt;
+        };
+        return jdbcTemplate.queryForStream(creator, (rs, rowNum) -> {
+            Student s = new Student();
+            s.setId(rs.getInt("id"));
+            s.setName(rs.getString("name"));
+            s.setAge(rs.getInt("age"));
+            s.setBirthday(rs.getTimestamp("birthday"));
+            return s;
+        });
     }
 }

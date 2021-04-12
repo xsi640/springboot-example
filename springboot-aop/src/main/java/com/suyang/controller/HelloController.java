@@ -1,11 +1,11 @@
 package com.suyang.controller;
 
-import jdk.nashorn.internal.runtime.logging.Logger;
+import com.suyang.aop.Logging;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-@Logger
+@Logging
 @RestController
 public class HelloController {
     @RequestMapping("/")
