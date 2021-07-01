@@ -1,7 +1,0 @@
-springBoot {
-    mainClassName "com.suyang.Application"
-}
-
-dependencies {
-    implementation project(":springboot-demo-starter")
-}

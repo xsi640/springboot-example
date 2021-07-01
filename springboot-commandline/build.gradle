@@ -1,3 +1,0 @@
-springBoot {
-    mainClassName "com.suyang.Application"
-}
